@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+#include<iostream>
+using namespace std;
+#define vish long long
+#define M 1000000007
+vish mypow(vish rrr,vish zzz){
+    if(zzz==0){
+        return 1;
+    }
+    vish sol=mypow(rrr,zzz/2);
+    if(zzz%2!=0){
+        return ((rrr*sol*sol)%M);
+    }else{
+        return ((sol*sol)%M);
+    }
+}
+void solve(){
+    int a;
+    cin>>a;
+    vish ans;
+    ans=mypow(2,a-1);
+    ans=ans%M;
+    cout<<ans<<"\n";
+}
+
+
+int main() {
+    int temp;
+    cin>>temp;
+    while(temp--){
+        solve();
+    }
+	
+	return 0;
+}
